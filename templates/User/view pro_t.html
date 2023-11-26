@@ -1,0 +1,40 @@
+{% extends 'User/user_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="ordrprdctcode1">
+  <table border="1"class="table table-dark">
+
+    <tr>
+      <td>Product</td>
+      <td>Quantity</td>
+      <td>Offer</td>
+      <td>Price</td>
+        <td>Total</td>
+
+        <td></td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ i.PRODUCT.name }}</td>
+      <td>{{ i.quantity }}&nbsp;</td>
+      <td>{{ i.offer }}&nbsp;</td>
+        <td>{{ i.PRODUCT.price }}</td>
+      <td>{{ i.tp }}</td>
+    </tr>
+<tr>
+    {% endfor %}
+      <td colspan="4">Total : </td><td>{{ ta }}/-</td>
+      </tr>
+  <tr>
+      <td align="center" colspan="5"><a href="/viewproduct/{{ id }}" class="btn btn-primary">Continue</a>
+                    <input type="submit" name="Submit" value="Finsh" class="btn btn-primary"/>
+
+{#          <a href="#" class="btn btn-primary">Finsh</a>#}
+
+
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

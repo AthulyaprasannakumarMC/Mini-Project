@@ -1,0 +1,38 @@
+{% extends 'User/user_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/u_pro_sch#about">
+  <table border="1"class="table table-dark">
+<tr>
+      <th colspan="7" scope="row">Name:
+        <label>
+        <input type="text" name="date" />
+        <input type="submit" name="Submit" value="GO"class="btn btn-outline-success"/>
+      </label></th>
+    </tr>
+    <tr>
+      <th scope="row">Slno</th>
+      <td>Product</td>
+      <td>Category</td>
+      <td>Price</td>
+      <td>Quantity</td>
+        <td>Offer</td>
+        <td></td>
+    </tr>{% for i in val %}
+    <tr>
+      <th scope="row">&nbsp;{{ forloop.counter }}</th>
+      <td>&nbsp;{{ i.1 }}</td>
+      <td>&nbsp;{{ i.13}}</td>
+      <td>{{ i.2 }}&nbsp;</td>
+      <td>&nbsp;{{ i.3}}</td>
+        <td>{{ i.10 }}</td>
+        <td align="center"  colspan="6">
+          <a href="/order_pro_u/{{ i.0 }}#about"class="btn btn-success">Order</a></td>
+
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

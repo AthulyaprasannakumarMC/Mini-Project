@@ -1,0 +1,42 @@
+{% extends 'HardwareShops/hw_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/return_sch#about">
+  <table width="528" border="1"class="table table-dark">
+    <tr>
+      <th colspan=7 scope="row">Date
+        <label>
+        <input type="date" name="date" />
+        <input type="submit" name="Submit" value="GO" class="btn btn-outline-success"/>
+      </label></th>
+    </tr>
+    <tr>
+{#      <th  scope="row">Slno</th>#}
+      <td >Product</td>
+      <td >Company Name</td>
+      <td >Quantity</td>
+      <td >Date</td>
+      <td>Reason</td>
+{#      <td>Status</td>#}
+
+    </tr>
+    <tr>{% for i in val %}
+{#      <th scope="row">{{ forloop.counter }}&nbsp;</th>#}
+      <td>&nbsp;{{ i.TRANSACTION.PRODUCT.name }}</td>
+      <td>&nbsp;{{ i.TRANSACTION.cname }}</td>
+      <td>{{ i.quantity }}&nbsp;</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.reason  }}</td>
+{#        <td>{{ i.status }}</td>#}
+    </tr>{% endfor %}
+  <tr >
+           <td align="center" colspan="7">
+               <p><a href="/add_return#about"class="btn btn-primary">Add</a></p>
+           </td>
+</tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

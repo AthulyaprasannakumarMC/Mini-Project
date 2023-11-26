@@ -1,0 +1,52 @@
+{% extends 'HardwareShops/hw_index.html' %}
+{% block body %}
+
+<body>
+<form action="/edit_product#about" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1"class="table table-dark">
+  <tr>
+      <td>Category</td>
+     <td><div align="left">
+        <select name="select"required>
+             {% for i in data %}
+                <option value="{{ i.id }}"> {{ i.name }}</option>
+
+            {% endfor %}
+        </select></div></td>
+    </tr>
+<tr>
+    <th>Name</th>
+    <td><label>
+        <input type="text" name="textfield" value="{{ val.name }}"required pattern="[A-Z a-z.]{3,25}" />
+      </label></td>
+</tr>
+    <tr>
+      <th scope="row">Price</th>
+      <td><label>
+        <input type="text" name="textfield3" value="{{ val.price }}" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Quantity</th>
+      <td><label>
+        <input type="text" name="textfield4" value="{{ val.quantity }}"required/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Image</th>
+      <td><label>
+        <input type="file" name="file" > <img src="{{ val.photo.url }}"width="100"height="100"/>
+
+      </label></td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2" scope="row"><label>
+        <input type="submit" name="Submit" value="Update" class="btn btn-outline-success"/>
+      </label></td>
+    </tr>
+  </table>
+  <label></label>
+</form>
+</body>
+</html>
+{% endblock %}

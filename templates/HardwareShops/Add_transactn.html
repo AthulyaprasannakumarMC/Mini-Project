@@ -1,0 +1,52 @@
+{% extends 'HardwareShops/hw_index.html' %}
+{% block body %}
+
+<body>
+<form action="/insert_tran#about" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1"class="table table-dark">
+  <tr>
+      <td>Product</td>
+     <td><div align="left">
+        <select name="select">
+             {% for i in val %}
+                <option value="{{ i.id }}"> {{ i.name }}</option>
+
+            {% endfor %}
+        </select></div></td>
+    </tr>
+<tr>
+    <th>Company Name</th>
+    <td><label>
+        <input type="text" name="textfield" required pattern="[A-Z a-z.]{,25}" />
+      </label></td>
+</tr>
+    <tr>
+      <th >Quantity</th>
+      <td><label>
+        <input type="text" name="textfield3"required />
+      </label></td>
+    </tr>
+   <tr>
+      <th >Bill No</th>
+      <td><label>
+        <input type="text" name="textfield5"required />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <td><label>
+        <input type="date" name="textfield4"required />
+      </label></td>
+    </tr>
+
+    <tr>
+      <td align="center" colspan="2" scope="row"><label>
+        <input type="submit" name="Submit" value="Add"class="btn btn-primary" />
+      </label></td>
+    </tr>
+  </table>
+  <label></label>
+</form>
+</body>
+</html>
+{% endblock %}

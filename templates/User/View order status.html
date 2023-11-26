@@ -1,0 +1,36 @@
+{% extends 'User/user_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/myordr_sch#about">
+  <table width="200" border="1"class="table table-dark">
+  <tr>
+      <th colspan="5" scope="row">Date:
+        <label>
+        <input type="date" name="date" />
+        <input type="submit" name="Submit" value="GO"class="btn btn-outline-success"/>
+      </label></th>
+    </tr>
+
+    <tr>
+      <th scope="row">Bill No</th>
+      <td>Total Amount</td>
+      <td>Date</td>
+      <td>Status</td>
+{#        <td></td>#}
+        <td></td>
+    </tr>{% for i in val %}
+    <tr>
+      <th scope="row">&nbsp;{{ i.id }}</th>
+      <td>&nbsp;{{ i.amount }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+      <td>&nbsp;{{ i.status }}</td>
+        <td align="center"  colspan="6">
+              <a href="ordr_pro/{{ i.id }}#about"class="btn btn-success">View Products</a></td>
+
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

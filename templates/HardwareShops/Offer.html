@@ -1,0 +1,45 @@
+{% extends 'HardwareShops/hw_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/offr_sch#about">
+  <table width="541" border="1"class="table table-dark">
+    <tr>
+      <th colspan="8" scope="row">From date:
+        <label>
+        <input type="date" name="textfield" />
+        To date :
+        <input type="date" name="textfield2" />
+        <input type="submit" name="Submit" value="GO"class="btn btn-outline-success" />
+      </label></th>
+    </tr>
+    <tr>
+      <th  scope="row">Slno</th>
+      <td >Product</td>
+      <td>From date</td>
+      <td>To date </td>
+      <td >Offer</td>
+      <td >Details</td>
+        <td></td>
+        <td></td>
+
+    </tr>{% for i in val %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}&nbsp;</th>
+      <td>&nbsp;{{ i.PRODUCTID.name }}</td>
+      <td>&nbsp;{{ i.fromdate }}</td>
+      <td>&nbsp;{{ i.todate }}</td>
+      <td>&nbsp;{{ i.offer }}</td>
+      <td>{{ i.details }}&nbsp;</td>
+        <td></td>
+{#     <td><p><a href="/editV_offr/{{ i.id }}#about"class="btn btn-success">edit</a></p>#}
+     <td> <p><a href="dlt_offr/{{ i.id }}#about"class="btn btn-danger">delete</a></p></td>
+    </tr>{% endfor %}
+    <tr>
+      <td align="center" colspan="8" ><a href="/Addoffers#about"class="btn btn-primary">Add</a></td>
+    </tr>
+  </table>
+  <a href="#"></a>
+</form>
+</body>
+</html>
+{% endblock %}

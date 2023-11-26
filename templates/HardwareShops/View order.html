@@ -1,0 +1,36 @@
+{% extends 'HardwareShops/hw_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/ordr_sch#about">
+  <table border="1"class="table table-dark">
+    <tr>
+      <th colspan="6" scope="row"><label>
+        Date:
+        <input type="date" name="date" />
+        <input type="submit" name="Submit" value="GO"class="btn btn-outline-success" />
+      </label></th>
+    </tr>
+    <tr>
+      <th scope="row">Slno</th>
+      <td>User</td>
+      <td>Amount</td>
+      <td>Date</td>
+        <td>Status</td>
+        <td></td>
+    </tr>{% for i in val %}
+    <tr>
+      <th scope="row">&nbsp;{{ forloop.counter }}</th>
+      <td>{{ i.USER.name }}&nbsp;</td>
+      <td>&nbsp;{{ i.amount }}</td>
+      <td>{{ i.date }}&nbsp;</td>
+        <td>{{ i.status }}</td>
+        <td align="center"  colspan="6">
+          <a href="/vieworderedproducts/{{ i.id }}#about"class="btn btn-success">View product</a></td>
+
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'HardwareShops/hw_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="complt_sch#about">
+  <table width="200" border="1"class="table table-dark">
+    <tr>
+      <th colspan="6" scope="row">Date:
+        <label>
+        <input type="date" name="date" />
+        <input type="submit" name="Submit" value="GO"class="btn btn-outline-success" />
+      </label></th>
+    </tr>
+    <tr>
+      <th scope="row">Slno</th>
+      <td>User</td>
+      <td>Complaint</td>
+      <td>Date</td>
+        <td>Reply</td>
+
+    </tr>{% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.USER.name }}</td>
+      <td>{{ i.complaint }}&nbsp;</td>
+      <td>{{ i.date }}</td>
+   {% if i.reply == 'pending' %}
+    <td align="center"  colspan="6">
+
+        <p><a href="/send_reply/{{ i.id }}#about"class="btn btn-primary">Reply</a></p></td>
+    {% else %}
+           <td>{{ i.reply }}</td>
+    {% endif %}
+
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

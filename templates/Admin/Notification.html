@@ -1,0 +1,38 @@
+        {% extends 'Admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="notn_a_sch#about">
+  <table width="236" border="1"class="table table-dark">
+    <tr>
+      <th colspan="4" scope="row">Date:
+        <label>
+        <input type="date" name="date" />
+        </label>
+        <label>
+        <input type="submit" name="Submit" value="GO" class="btn btn-outline-success"/>
+      </label></th>
+    </tr>
+    <tr>
+      <th scope="row">Slno</th>
+      <td >Notification</td>
+      <td >Date</td>
+        <td></td>
+    </tr>
+      {% for i in val %}
+    <tr>
+        <th>{{ forloop.counter }}</th>
+      <td>&nbsp;{{ i.notification }}</td>
+      <td>{{ i.date }}&nbsp;</td>
+          <td ><a href="dlt_notn/{{ i.id }}#about"class="btn btn-danger">delete</a></td>
+
+    </tr>
+      {% endfor %}
+    <tr>
+      <td align="center" colspan="4" scope="row"><a href="NotificationAdd#about"class="btn btn-primary">Add</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

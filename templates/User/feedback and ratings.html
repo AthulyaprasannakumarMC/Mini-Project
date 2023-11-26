@@ -1,0 +1,36 @@
+{% extends 'User/user_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="feed_sch#about">
+  <table width="293" border="1"class="table table-dark">
+    <tr>
+      <th colspan="4" scope="row">Date:
+        <label>
+        <input type="date" name="date" />
+        </label>
+      <label>
+      <input type="submit" name="Submit" value="GO" class="btn btn-outline-success"/>
+      </label></th>
+    </tr>
+    <tr>
+      <th scope="row">Slno</th>
+      <td >Feedback</td>
+      <td >Rating</td>
+      <td >Date</td>
+    </tr>{% for i in val %}
+    <tr>
+      <th scope="row">&nbsp;{{ forloop.counter }}</th>
+      <td>&nbsp;{{ i.feedback }}</td>
+      <td>&nbsp;{{ i.rating }}</td>
+      <td>&nbsp;{{ i.date }}</td>
+    </tr>{% endfor %}
+    <tr>
+      <td align="center" colspan="4" scope="row"><a href="/Sendfeedbackrating#about"class="btn btn-primary">Add</a></td>
+    </tr>
+  </table>
+
+</form>
+</body>
+</html>
+{% endblock %}

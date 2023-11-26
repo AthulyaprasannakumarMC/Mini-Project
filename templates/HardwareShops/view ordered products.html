@@ -1,0 +1,26 @@
+{% extends 'HardwareShops/hw_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="316" border="1"class="table table-dark">
+
+    <tr>
+      <th scope="row">slno</th>
+      <td>Product</td>
+      <td>quantity</td>
+      <td>Price</td>
+    </tr>{% for i in val %}
+
+
+    <tr>
+      <th scope="row">&nbsp;{{ forloop.counter }}</th>
+      <td>&nbsp;{{ i.PRODUCT.name }}</td>
+      <td>&nbsp;{{ i.quantity }}</td>
+      <td>&nbsp;{{ i.PRODUCT.price }}</td>
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

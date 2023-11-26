@@ -1,0 +1,48 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{% extends 'Admin/admin_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/blk_a_sch#about">
+  <table width="321" border="1"class="table table-dark">
+    <tr>
+      <th colspan="6" scope="row">Name:
+        <label>
+        <input type="text" name="textfield" />
+        <input type="submit" name="Submit" value="GO" class="btn btn-outline-success"/>
+      </label></th>
+    </tr>
+    <tr>
+      <th scope="row">Slno</th>
+      <td >Name</td>
+      <td>Address</td>
+      <td >Phone</td>
+      <td>Email</td>
+        <td></td>
+
+    </tr>
+
+      {% for i in val %}
+    <tr>
+      <th height="109" scope="row">&nbsp;{{ forloop.counter }}</th>
+      <td>&nbsp;{{ i.name }}</td>
+      <td>&nbsp;{{ i.place }},{{ i.post }}</td>
+      <td>&nbsp;{{ i.phone }}</td>
+      <td>&nbsp;{{ i.email }}</td>
+        {% if i.LOGIN.type == 'hardwareshop' %}
+        <td ><p><a href="blk_hws/{{ i.LOGIN.id }}#about" class="btn btn-danger">Block</a></p></td>
+        {% else %}
+    <td><p><a href="unblk_hws/{{ i.LOGIN.id }}#about" class="btn btn-success">Unblock</a></p></td>
+        {% endif %}
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

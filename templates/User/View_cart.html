@@ -1,0 +1,32 @@
+{% extends 'User/user_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/myordr_sch#about">
+  <table width="200" border="1"class="table table-dark">
+
+
+    <tr>
+      <th scope="row">SL no</th>
+      <td>Product</td>
+      <td>Image</td>
+      <td>Quantity</td>
+      <td>Price</td>
+{#        <td></td>#}
+        <td></td>
+    </tr>{% for i in val %}
+    <tr>
+    <th>{{ forloop.counter }}</th>
+      <th scope="row">&nbsp;{{ i.1 }}</th>
+      <td>&nbsp;<img src="../media/{{ i.4 }}"></td>
+      <td>&nbsp;{{ i.7 }}</td>
+      <td>&nbsp;{{ i.2 }}</td>
+        <td align="center"  colspan="6">
+              <a href="delete_cart/{{ i.8}}/{{ i.7 }}#about"class="btn btn-success">delete</a></td>
+
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+
+{% endblock %}

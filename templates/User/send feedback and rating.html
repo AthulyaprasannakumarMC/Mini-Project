@@ -1,0 +1,34 @@
+{% extends 'User/user_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="inst_feed#about">
+  <table width="321" height="92" border="1"class="table table-dark">
+    <tr>
+      <th width="311" height="26" scope="row">Feedback:
+        <label>
+        <input type="text" name="textfield2" required pattern="[A-Z a-z.]{3,25}" />
+        </label></th>
+    </tr>
+    <tr>
+      <th height="28" scope="row">Ratings:
+        <select name="select2"required>
+            <option >1</option>
+            <option >2</option>
+            <option >3</option>
+            <option >4</option>
+            <option >5</option>
+
+        </select></th>
+    </tr>
+    <tr>
+      <td align="center" height="28" scope="row"><label>
+        <input type="submit" name="Submit" value="Send" class="btn btn-primary"/>
+      </label></td>
+    </tr>
+  </table>
+
+</form>
+</body>
+</html>
+{% endblock %}

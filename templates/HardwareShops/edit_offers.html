@@ -1,0 +1,50 @@
+{% extends 'HardwareShops/hw_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="edit_oofr#about">
+  <table width="331" border="1"class="table table-dark">
+    <tr>
+      <th width="168" scope="row">Product</th>
+      <td><div align="left">
+        <select name="select" required>
+             {% for i in val2 %}
+                <option value="{{ i.id }}"> {{ i.name }}</option>
+            {% endfor %}
+        </select></div></td>
+    </tr>
+    <tr>
+      <th scope="row">From Date </th>
+      <td><label>
+      <input type="date" name="textfield" value="{{ val.fromdate}}" required />
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">To Date </th>
+      <td><label>
+        <input type="date" name="textfield2"  value="{{ val.todate}}"required/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Offer</th>
+      <td><label>
+        <input type="text" name="textfield4" required value="{{ val.offer}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Details</th>
+      <td><label>
+        <input type="text" name="textfield5" required pattern="[A-Z a-z.]{3,25}" value="{{  val.details}}"/>
+      </label></td>
+    </tr>
+
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="Submit" value="Update"class="btn btn-outline-success" /></th>
+    </tr>
+  </table>
+  <label></label>
+</form>
+
+</body>
+</html>
+{% endblock %}

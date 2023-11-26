@@ -1,0 +1,41 @@
+{% extends 'HardwareShops/hw_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="product_sch#about">
+  <table width="528" border="1"class="table table-dark">
+    <tr>
+      <th colspan="7" scope="row">Name:
+        <label>
+        <input type="text" name="textfield" />
+        <input type="submit" name="Submit" value="GO" class="btn btn-outline-success"/>
+      </label></th>
+    </tr>
+    <tr>
+      <th  scope="row">Slno</th>
+      <td >Product</td>
+      <td >Category</td>
+      <td >Price</td>
+      <td >Quantity</td>
+        <td></td>
+
+    </tr>{% for i in val %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}&nbsp;</th>
+      <td>&nbsp;{{ i.name }}<br/><img src="{{ i.photo.url }}" width="100" height="100"> </td>
+      <td>&nbsp;{{ i.CATEGORY.name }}</td>
+      <td>{{ i.price }}&nbsp;</td>
+      <td>&nbsp;{{ i.quantity }}</td>
+     <td><p><a href="/editV_pro/{{ i.id }}#about" class="btn btn-success"> edit</a></p>
+        <p><a href="/dlt_product/{{ i.id }}#about"class="btn btn-danger">delete</a></p></td>
+    </tr>{% endfor %}
+  <tr >
+           <td align="center" colspan="7">
+               <p><a href="Addproduct#about"class="btn btn-primary">Add</a></p>
+           </td>
+</tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

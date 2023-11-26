@@ -1,0 +1,50 @@
+{% extends 'HardwareShops/hw_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="insert_offr#about">
+  <table width="331" border="1"class="table table-dark">
+    <tr>
+      <th width="168" scope="row">Product</th>
+      <td><div align="left">
+        <select name="select" required>
+             {% for i in val %}
+                <option value="{{ i.id }}"> {{ i.name }}</option>
+            {% endfor %}
+        </select></div></td>
+    </tr>
+    <tr>
+      <th scope="row">From Date </th>
+      <td><label>
+      <input type="date" name="textfield" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">To Date </th>
+      <td><label>
+        <input type="date" name="textfield2" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Offer</th>
+      <td><label>
+        <input type="text" name="textfield4" required/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Details</th>
+      <td><label>
+        <input type="text" name="textfield5" required pattern="[A-Z a-z.]{3,25}" />
+      </label></td>
+    </tr>
+
+    <tr>
+      <td align="center " colspan="2" scope="row"><input type="submit" name="Submit" value="Add" class="btn btn-primary"/></td>
+    </tr>
+  </table>
+  <label></label>
+</form>
+
+</body>
+</html>
+{% endblock %}

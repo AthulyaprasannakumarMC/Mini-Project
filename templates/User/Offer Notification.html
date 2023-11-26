@@ -1,0 +1,35 @@
+{% extends 'User/user_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/offr_notn_sch#about">
+  <table width="260" border="1"class="table table-dark">
+    <tr>
+      <th colspan="8" scope="row">From date:
+        <label>
+        <input type="date" name="textfield" />
+        To date :
+        <input type="date" name="textfield2" />
+        <input type="submit" name="Submit" value="GO" class="btn btn-outline-success"/>
+      </label></th>
+    </tr>
+    <tr>
+      <th width="18" scope="row">Slno</th>
+      <td width="28">offer</td>
+      <td width="28">Details</td>
+      <td width="28">Fromdate</td>
+      <td width="28">Todate</td>
+      <td width="90">Product</td>
+    </tr>{% for i in val %}
+    <tr>
+      <th scope="row">&nbsp;{{ forloop.counter }}</th>
+      <td>&nbsp;{{ i.offer }}</td>
+      <td>&nbsp;{{ i.details }}</td>
+      <td>{{ i.fromdate }}&nbsp;</td>
+      <td>{{ i.todate }}&nbsp;</td>
+      <td>{{ i.PRODUCTID.name }}&nbsp;</td>
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

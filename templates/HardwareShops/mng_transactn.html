@@ -1,0 +1,46 @@
+{% extends 'HardwareShops/hw_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/trans_sch#about">
+  <table width="528" border="1"class="table table-dark">
+    <tr>
+      <th colspan=8 scope="row">Date
+        <label>
+        <input type="date" name="date" />
+        <input type="submit" name="Submit" value="GO" class="btn btn-outline-success"/>
+      </label></th>
+    </tr>
+    <tr>
+      <th  scope="row">Slno</th>
+      <td >Product</td>
+      <td >Company Name</td>
+      <td >Quantity</td>
+      <td >Bill No</td>
+      <td>Date</td>
+{#      <td>Status</td>#}
+      <td></td>
+
+    </tr>{% for i in val %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}&nbsp;</th>
+      <td>&nbsp;{{ i.PRODUCT.name }}</td>
+      <td>&nbsp;{{ i.cname }}</td>
+      <td>{{ i.quantity }}&nbsp;</td>
+      <td>&nbsp;{{ i.bill_no }}</td>
+        <td>{{ i.date }}</td>
+{#        <td>{{ i.status }}</td>#}
+     <td><p><a href="/editV_transaction/{{ i.id }}#about" class="btn btn-success"> Edit</a></p>
+        <p><a href="/dlt_trans/{{ i.id }}#about"class="btn btn-danger">Delete</a></p>
+        <p><a href="/mng_return/{{ i.PRODUCT.id }}/{{ i.id }}#about"class="btn btn-warning">Return</a></p></td>
+    </tr>{% endfor %}
+  <tr >
+           <td align="center" colspan="8">
+               <p><a href="add_transaction#about"class="btn btn-primary">Add</a></p>
+           </td>
+</tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

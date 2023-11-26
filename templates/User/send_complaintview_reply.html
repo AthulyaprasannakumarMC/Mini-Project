@@ -1,0 +1,40 @@
+{% extends 'User/user_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/u_comp_sch#about">
+  <table width="200" border="1"  class="table table-dark">
+   <tr>
+      <th colspan="5" scope="row">Date:
+        <label>
+        <input type="date" name="date" />
+        <input type="submit" name="Submit" value="GO"class="btn btn-outline-success"/>
+      </label></th>
+    </tr>
+
+    <tr>
+        <td>Hardware shop</td>
+      <td>Complaint</td>
+      <td>date</td>
+      <td>reply</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+        <td>{{ i.HARDWARESHOP.name }}</td>
+        <td>{{i.complaint  }}</td>
+      <td>{{ i.date }}</td>
+      <td>{{ i.reply }}</td>
+    </tr>
+      {% endfor %}
+      <tr>
+      <td colspan="6"><label></label>
+        <div align="center">
+          <a href="Sendcomplaints#about"class="btn btn-primary">Add</a>
+          </div>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

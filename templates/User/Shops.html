@@ -1,0 +1,39 @@
+{% extends 'User/user_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="shops_sch#about">
+  <table width="" border="1"class="table table-dark">
+    <tr>
+      <th colspan="6" scope="row">Name
+        <label>
+        <input type="text" name="textfield" />
+      </label>
+        <label>
+        <input type="submit" name="Submit" value="GO"class="btn btn-outline-success" />
+      </label></th>
+    </tr>
+    <tr>
+      <th  scope="row">Slno</th>
+      <td>Name</td>
+      <td>Address</td>
+      <td>Phone</td>
+      <td>Email</td>
+        <td></td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}&nbsp;</th>
+      <td>&nbsp;{{ i.name }}<img src="{{ i.photo.url }}" width="100" height="100"></td>
+      <td>{{ i.place }}<p>{{ i.post }}<p>{{ i.pin }}&nbsp;</td>
+      <td>{{ i.phone }}&nbsp;</td>
+      <td>&nbsp;{{ i.email }}</td>
+          <td ><a href="/viewproduct/{{ i.id }}#about"class="btn btn-success">View product</a></td>
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

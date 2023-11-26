@@ -1,0 +1,35 @@
+{% extends 'Admin/admin_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="feedd_sch#about">
+  <table width="249" border="1"class="table table-dark">
+    <tr>
+      <th colspan="5" scope="row">Date:
+        <label>
+        <input type="date" name="date" />
+        <input type="submit" name="Submit" value="GO"class="btn btn-outline-success"/>
+      </label></th>
+    </tr>
+    <tr>
+      <th  scope="row">Slno</th>
+      <td >User</td>
+      <td >Feedback</td>
+      <td>Ratings</td>
+        <td>Date</td>
+
+    </tr>
+      {% for i in val %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>&nbsp;{{ i.USER.name}}</td>
+      <td>&nbsp;{{ i.feedback}}</td>
+      <td>{{ i.rating }}</td>
+    <td> {{ i.date }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'User/user_index.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="add_complt#about">
+  <table width="290" border="1"class="table table-dark">
+    <tr>
+      <th width="280" scope="row">Hardware
+        <label>
+        <select name="select"required>
+            {% for i in val %}
+ <option value="{{ i.id }}"> {{ i.name }}</option>
+            {% endfor %}
+        </select>
+      </label></th>
+    </tr>
+    <tr>
+      <th scope="row">Complaints
+        <label>
+        <input type="text" name="textfield" required pattern="[A-Z a-z.]{3,25}" />
+      </label></th>
+    </tr>
+    <tr>
+      <td align="center"scope="row"><label>
+
+        <input type="submit" name="Submit" value="Add" class="btn btn-primary"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}

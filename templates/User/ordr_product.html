@@ -1,0 +1,25 @@
+{% extends 'User/user_index.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1"class="table table-dark">
+
+    <tr>
+      <td>Product</td>
+      <td>Image</td>
+      <td>Quantity</td>
+        <td></td>
+    </tr>{% for i in val %}
+    <tr>
+      <td>&nbsp;{{ i.PRODUCT.name }}</td>
+      <td>&nbsp;<img src="{{ i.PRODUCT.photo.url }}"width="100" height="100"> </td>
+      <td>&nbsp;{{ i.quantity }}</td>
+        <td>{% if i.quantity == 0 %} returned ({{ i.rstatus }}) {% else %}{% if i.rs == "1" %}<a href="/proreturn/{{ i.id }}/{{ i.quantity }}" class="btn btn-success">return</a>{% else %} returned ({{ i.rstatus }}) {% endif %} {% endif %}</td>
+{#          <td rowspan="2"><a href="#">Order</a></td>#}
+
+    </tr>{% endfor %}
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}
